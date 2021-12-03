@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*デフォルトエラーメッセージが出た際、レイアウトが崩れないCSSを記述*/
+.field_with_errors {
+  display: contents;
+}
+
+.side_bar{
+  background-color: blue;
+}

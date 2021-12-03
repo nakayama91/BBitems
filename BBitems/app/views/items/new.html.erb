@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 offset-2">
+
+      <%= form_with model: @item, local:true do |f| %>
+        <!--名前-->
+        <div class="field form-group">
+          <label>製品名（必須）</label> <br/>
+          <%= f.text_field :name, autofocus: true, class:'form-control col-6' %>
+        </div>
+        <!--ジャンル-->
+        <div class="field form-group">
+          <label>ジャンル（必須）</label> <br/>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '--選択してください--'}, class:'form-control col-3'%>
+        </div>
+        <!--評価-->
+        <div id="evaluate_stars">
+          <label>評価</label>
+        </div>
+        <!--説明-->
+        <div class="field form-group">
+          <label>投稿製品の説明（必須）</label>
+          <%= f.text_area :introduction, autofocus: true, class:'form-control col-6' %>
+        </div>
+       <!--製品画像-->
+        <div class="field form-group">
+          <label >製品画像</label> <br/>
+          <%= f.attachment_field :image %>
+        </div>
+        <!--メーカー名-->
+        <div class="field form-group">
+          <label>メーカー名（記載可能であれば）</label> <br/>
+          <%= f.text_field :maker, autofocus: true, class:'form-control col-6' %>
+        </div>
+        <!--価格-->
+        <div class="field form-group">
+          <label>価格帯（記載可能であれば）</label> <br/>
+          <%= f.text_field :price, autofocus: true, class:'form-control col-6' %>
+        </div>
+
+        <!--投稿ボタン-->
+        <div class="form-group">
+          <%= f.submit "投稿する" , class:'btn btn-sm btn-success' %>
+        </div>
+      <% end %>
+
+      <script>
+        $('#evaluate_stars').raty({
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'item[evaluation]'
+        });
+      </script>
+
+    </div>
+  </div>
+</div>
