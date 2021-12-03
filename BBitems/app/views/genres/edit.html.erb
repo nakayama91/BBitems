@@ -5,9 +5,9 @@
 
   <div class="row">
       <%= form_with model: @genre,url: genre_path, local:true do |f| %>
-        <div class="form-group form">
+        <div class="field form-group">
           <div style="margin-right:50px">ジャンル名</div>
-          <div style="margin-right:50px"><%= f.text_field :name %></div>
+          <div style="margin-right:50px"><%= f.text_field :name, class:'form-control' %></div>
         </div>
         <%= f.submit "変更を保存", class: "btn btn-success" %>
       <% end %>
