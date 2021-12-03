@@ -30,7 +30,7 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  attachment :profile_image
+  attachment :image
 
   validates :name, presence: true,  length: { maximum: 20 }, uniqueness: true
 

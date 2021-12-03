@@ -4,16 +4,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+  def index
   end
 
   def leave
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :introduction, :image)
+  end
 end
