@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {   registrations: 'users/registrations',
-                                      sessions: 'users/sessions' }
+                                      sessions: 'users/sessions' } #コントローラーの編集内容を反映させる
 
   #ホーム画面ルーティング
   root to: 'homes#top'
@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   end
 
   #genreルーティング
-  resources :genre, only:[:index, :edit, :create, :update, :destroy]
+  resources :genres, only:[:index, :edit, :create, :update, :destroy]
 
 end
