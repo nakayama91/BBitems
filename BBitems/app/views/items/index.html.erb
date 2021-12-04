@@ -7,7 +7,7 @@
     </div>
 
     <!--メイン部分-->
-    <main class="col-9">
+    <main class="col-9 pl-5">
       <div class="row">
 
         <div class="col-12">
@@ -16,12 +16,12 @@
 
         <!--投稿一覧-->
         <% @items.each do |item| %>
-          <div class="col-xs-12 col-md-3">
-            <div class="card" style="float: left;">
+          <div class="text-truncate col-xs-12 col-md-3">
+            <div class="card" style="float: left; width: 100%;">
               <!--製品画像-->
               <div class="card-img-top">
                 <%= link_to item_path(item.id) do %>
-                  <%= attachment_image_tag item, :image, height:150, format: 'jpeg', fallback: "no_image.jpg" %>
+                  <%= attachment_image_tag item, :image, height:"120px", width:"100%", format: 'jpeg', fallback: "no_image.jpg" %>
                 <% end %>
               </div>
               <div class="card-body">
@@ -34,14 +34,12 @@
                 <!--ジャンル-->
                 <p class="card-text">（<%= item.genre.name %>）</p>
                 <!--星評価-->
-                <div class="card-footer">
                   <div class="item-evaluation" data-score="<%= item.evaluation %>"></div>
-                </div>
               </div>
             </div>
           </div>
         <% end %>
-
+        <!--星の表示の記述-->
         <script>
           $('.item-evaluation').raty({
             readOnly: true,
