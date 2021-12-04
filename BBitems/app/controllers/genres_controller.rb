@@ -22,11 +22,6 @@ class GenresController < ApplicationController
     end
   end
 
-  def destroy
-    @genre = Genre.find(params[:id])
-    @genre.destroy(genre_params)
-    redirect_to genres_path
-  end
 
   private
 

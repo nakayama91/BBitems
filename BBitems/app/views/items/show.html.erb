@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+
+    <!--サイドバー-->
+    <div class="side_bar col-3">
+      検索機能
+    </div>
+
+    <!--メイン-->
+    <main class="col-9 pl-5">
+      <div class="row">
+
+        <!--投稿者の情報-->
+        <div class=" col-12">
+          <h3>投稿者<br/>
+            <p class="mt-2">
+              <!--イメージ画像-->
+              <%= attachment_image_tag @user, :image, height:"50", width:"auto", format: 'jpeg', fallback: "no_image.jpg" %></td>
+              <!--投稿者名-->
+              <%= link_to user_path(@user.id) do %>
+                <%= @user.name %>
+              <% end %>
+            </p>
+          </h3>
+        </div>
+
+        <!--投稿詳細-->
+        <div class="h3 col-12 mt-3 mb-3"><%= @item.name %></div>
+        <!--製品写真-->
+        <div class="col-xs-12 col-md-5">
+          <%= attachment_image_tag @item, :image, height:"200", width:"100%", format: 'jpeg', fallback: "no_image.jpg" %>
+        </div>
+        <div class="col-xs-12 col-md-7">
+          <table class="table table-border">
+            <tr>
+              <td>カテゴリー： <%= @item.genre.name %></td>
+            </tr>
+            <tr>
+              <td>メーカー： <%= @item.maker %></td>
+            </tr>
+            <tr>
+              <td>価格帯： <%= @item.price %></td>
+            </tr>
+            <tr>
+              <td>評価<div class="item-evaluation" data-score="<%= @item.evaluation %>"></div></td>
+            </tr>
+            <tr>
+              <td>
+                <% if @item.user_id == current_user.id %>
+                  <%= link_to "編集する", edit_item_path(@item.id), class:'btn btn-sm btn-success' %></td>
+                <% end %>
+            </tr>
+          </table>
+        </div>
+
+        <!--星の表示の記述-->
+        <script>
+          $('.item-evaluation').raty({
+            readOnly: true,
+            score: function() {
+              return $(this).attr('data-score');
+            },
+            path: '/assets/'
+          });
+        </script>
+
+        <div class="col-12 mt-3">
+          <h3>Introduction</h3>
+          <p>
+            <%= @item.introduction %>
+          </p>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
