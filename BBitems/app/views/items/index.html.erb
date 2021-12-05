@@ -2,9 +2,7 @@
   <div class="row">
 
     <!--サイドバー-->
-    <div class="side_bar col-3">
-      検索機能
-    </div>
+    <%= render 'layouts/side' %>
 
     <!--メイン部分-->
     <main class="col-9 pl-5">
@@ -16,7 +14,7 @@
 
         <!--投稿一覧-->
         <% @items.each do |item| %>
-          <div class="text-truncate col-xs-12 col-md-3">
+          <div class="text-truncate col-xs-12 col-md-6 col-xl-3">
             <div class="card" style="float: left; width: 100%;">
               <!--製品画像-->
               <div class="card-img-top">

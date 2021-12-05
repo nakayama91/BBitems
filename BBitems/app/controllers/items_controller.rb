@@ -15,12 +15,18 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.all.order(created_at: :desc)
+    @genres = Genre.all
+    if params[:genre_id].present?
+      @genre = Genre.find(params[:genre_id])
+      @items = @genre.items.order(created_at: :desc)
+    end
   end
 
   def show
     @item = Item.find(params[:id])
     @user = @item.user
+    @genres = Genre.all
   end
 
   def edit
