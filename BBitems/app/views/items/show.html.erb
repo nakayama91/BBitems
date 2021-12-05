@@ -36,13 +36,28 @@
               <td>投稿日： <%= I18n.l @item.created_at %></td>
             </tr>
             <tr>
-              <td>カテゴリー： <%= @item.genre.name %></td>
+              <td>ジャンル： <% if @item.genre.present? %>
+                               <%= @item.genre.name %>
+                             <% else %>
+                               <p></p>
+                             <% end %>
+              </td>
             </tr>
             <tr>
-              <td>メーカー： <%= @item.maker %></td>
+              <td>メーカー： <% if @item.maker.present? %>
+                               <%= @item.maker %>
+                             <% else %>
+                               <p></p>
+                             <% end %>
+              </td>
             </tr>
             <tr>
-              <td>価格帯： <%= @item.price %></td>
+              <td>価格帯： <% if @item.price.present? %>
+                             <%= @item.price %>
+                           <% else %>
+                             <p></p>
+                           <% end %>
+              </td>
             </tr>
             <tr>
               <td>評価<div class="item-evaluation" data-score="<%= @item.evaluation %>"></div></td>

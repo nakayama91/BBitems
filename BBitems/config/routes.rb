@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {   registrations: 'users/registrations',
                                       sessions: 'users/sessions' } #コントローラーの編集内容を反映させる
 
@@ -24,6 +25,6 @@ Rails.application.routes.draw do
   end
 
   #genreルーティング
-  resources :genres, only:[:index, :edit, :create, :update, :destroy]
+  resources :genres, only:[:index, :show, :edit, :create, :update, :destroy]
 
 end

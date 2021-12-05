@@ -31,8 +31,8 @@
                     <%= item.name %>
                   <% end %>
                 </h5>
-                <!--ジャンル-->
-                <p class="card-text">（<%= item.genre.name %>）</p>
+                <!--投稿日-->
+                <p class="card-text"><%= I18n.l item.created_at %></p>
                 <!--星評価-->
                   <div class="item-evaluation" data-score="<%= item.evaluation %>"></div>
               </div>

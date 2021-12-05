@@ -10,15 +10,16 @@
 
   <body>
     <div class="wrapper">
-
-      <!-- header -->
+      <!-- ヘッダー -->
       <%= render 'layouts/header' %>
-
+      <!--アラート-->
       <p id="notice"></p>
       <p id="alert"></p>
 
       <%= yield %>
-
+      
+      <%= render 'layouts/footer' %>
+    
     </div>
   </body>
 </html>
