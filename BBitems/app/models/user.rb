@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :items,         dependent: :destroy
   has_many :item_comments, dependent: :destroy
   has_many :likes,         dependent: :destroy
+  has_many :liked_items, through: :likes, source: :item
 
   # 自分がフォローする（与フォロー）側の関係性（userはたくさんの人をフォローしている）
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -28,6 +29,11 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+
+  #すでにいいねをしているのかどうかを判定
+  def already_liked?(item)
+    self.likes.exists?(item_id: item.id)
   end
 
   attachment :image

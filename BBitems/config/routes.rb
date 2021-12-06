@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
   	get 'followers' => 'relationships#followers', as: 'followers'
+  	resources :likes, only: [:create, :destroy]
 
     collection do
       get 'users/leave' => 'users#leave', as:"leave"

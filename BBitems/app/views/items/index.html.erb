@@ -30,7 +30,7 @@
                   <% end %>
                 </h5>
                 <!--投稿日-->
-                <p class="card-text"><%= I18n.l item.created_at %></p>
+                <p class="card-text"><%= I18n.l item.created_at, format: :short %></p>
                 <!--星評価-->
                   <div class="item-evaluation" data-score="<%= item.evaluation %>"></div>
               </div>

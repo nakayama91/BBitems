@@ -16,6 +16,9 @@
 
 @import "bootstrap";
 
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
 *{
   margin: 0;
   padding: 0;
@@ -55,4 +58,12 @@ footer{
     align-items: center;
     position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
+}
+
+/*いいね*/
+.like-after{
+  color: red khaki;
+}
+.like-before{
+  color: royalblue;
 }
