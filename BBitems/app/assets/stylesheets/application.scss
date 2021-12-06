@@ -31,7 +31,8 @@
 }
 
 .side_bar{
-  border: solid 5px red;
+  background-color: lightcyan;
+  border: solid 1px red;
   border-radius: 5px;
   height: 100%;
   padding: 10px 0 10px 5px;
@@ -62,8 +63,12 @@ footer{
 
 /*いいね*/
 .like-after{
-  color: red khaki;
+  color: red;
 }
 .like-before{
   color: royalblue;
+}
+
+.item-introduction{
+  border: solid 1px skyblue;
 }
