@@ -1,5 +1,0 @@
-<% if item.liked_by?(current_user) %>
-  <%= link_to item.likes.count, item_likes_path(item), method: :delete, remote: true, class:"fas fa-thumbs-up like-after"  %>
-<% else %>
-  <%= link_to item.likes.count, item_likes_path(item), method: :post, remote: true, class:"fas fa-thumbs-up like-before"  %>
-<% end %>

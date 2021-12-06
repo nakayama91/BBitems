@@ -16,7 +16,7 @@
               <%= attachment_image_tag @user, :image, height:"50", width:"auto", format: 'jpeg', fallback: "no_image.jpg" %></td>
               <!--投稿者名-->
               <%= link_to user_path(@user.id) do %>
-                <%= @user.name %>
+                "<%= @user.name %>"さん
               <% end %>
             </p>
           </h3>
@@ -29,7 +29,7 @@
           <%= attachment_image_tag @item, :image, height:"200", width:"100%", format: 'jpeg', fallback: "no_image.jpg" %>
           <!--いいね-->
           <h5 id="like-btn_<%= @item.id %>">
-            <%= render 'likes/like', item: @item %>
+            <%= render 'likes/likebtn', item: @item %>
           </h5>
         </div>
         <!--投稿詳細-->
@@ -51,7 +51,7 @@
             </tr>
             <tr>
               <td>メーカー</td>
-              <td>
+              <td><!--未記載だった時の為にif-->
                 <% if @item.maker.present? %>
                   <%= @item.maker %>
                 <% else %>
@@ -61,7 +61,7 @@
             </tr>
             <tr>
               <td>価格帯</td>
-              <td>
+              <td><!--未記載だった時の為にif-->
                 <% if @item.price.present? %>
                   <%= @item.price %>
                 <% else %>

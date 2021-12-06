@@ -26,17 +26,27 @@
             </tr>
             <tr>
               <td>
-                フォロー数（りんく）</h4>
+                <%= link_to followers_user_path(@user) do %>
+                  <p>フォロワー数：<%= @user.followers.count %></p>
+                <% end %>
               </td>
             </tr>
             <tr>
               <td>
-                フォロワー数（りんく）
+                <%= link_to followings_user_path(@user) do %>
+                  <p>フォロー数：<%= @user.followings.count %></p>
+                <% end %>
               </td>
             </tr>
-            <tr>
-              <td>
-                フォローする、しない（他人の場合）
+            <% if @user.id != current_user.id %>
+              <tr>
+                <td>
+                  <% if current_user.following?(@user) %>
+                      <%= link_to "フォロー外す", user_relationships_path(@user.id), class:'btn btn-primary', method: :delete %>
+                    <% else %>
+                     <%= link_to "フォローする", user_relationships_path(@user.id), class:'btn btn-success', method: :post %>
+                    <% end %>
+                  <% end %>
               </td>
             </tr>
             <tr>
@@ -55,7 +65,7 @@
         </div>
 
         <!--ユーザーの投稿一覧-->
-        <h3><%= @user.name %>さんの投稿一覧</h3>
+        <h3>"<%= @user.name %>"さんの投稿一覧（全<%= @user.items.count %>件）</h3>
         <div class="col-12">
           <table class="table table-border" style="table-layout: fixed;">
             <thead>
@@ -71,17 +81,17 @@
               <tr>
                 <!--製品名-->
                 <td>
-                  <div style="overflow: auto; white-space: nowrap;">
-                  <%= link_to item_path(item.id) do %>
-                    <%= item.name %>
-                  <% end %>
+                  <div class="text-truncate">
+                    <%= link_to item_path(item.id) do %>
+                      <%= item.name %>
+                    <% end %>
                   </div>
                 </td>
                 <!--投稿日-->
                 <td><%= I18n.l item.created_at %></td>
                 <!--ジャンル-->
                 <td>
-                  <div style="overflow: auto; white-space: nowrap;">
+                  <div class="text-truncate">
                     <!--ジャンルが削除された時の対策-->
                     <% if item.genre.present? %>
                       <%= item.genre.name %>
@@ -90,7 +100,7 @@
                     <% end %>
                   </div>
                 </td>
-                <td><i class="fas fa-thumbs-up"></i><%= item.likes.count %></td>
+                <td><p class="fas fa-thumbs-up"></p><%= item.likes.count %></td>
               </tr>
               <% end %>
 

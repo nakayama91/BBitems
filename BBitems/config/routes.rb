@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   #userルーティング
   resources :users, only:[:show, :index] do
     resource :relationships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as: 'followings'
-  	get 'followers' => 'relationships#followers', as: 'followers'
+    get 'followings', on: :member
+  	get 'followers', on: :member
   	resources :likes, only: [:create, :destroy]
 
     collection do

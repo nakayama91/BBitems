@@ -28,8 +28,14 @@
                   <%= link_to item.name, item_path(item.id) %>
                 </h5>
                 <div class="card-text text-truncate">
-                  <!--genre-->
-                  <p><%= item.genre.name %></p>
+                  <!--ジャンル-->
+                  <p><!--ジャンルが削除された時用にif-->
+                    <% if item.genre.present? %>
+                      <%= item.genre.name %>
+                    <% else %>
+                      <p></p>
+                    <% end %>
+                  </p>
                   <!--投稿日-->
                   <p><%= I18n.l item.created_at, format: :short %></p>
                 </div>
