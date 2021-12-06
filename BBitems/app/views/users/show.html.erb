@@ -1,44 +1,104 @@
 <div class="container">
   <div class="row">
     <!-- サイドバー -->
-    <div class="col-3 side_bar">
-      検索機能
-    </div>
+    <%= render 'layouts/side' %>
 
     <!-- メイン -->
-    <div class="col-9">
+    <div class="col-10 pl-5">
       <div class="row">
 
         <!-- 会員画像 -->
-        <div class="col-xs-12 col-md-4 user_image">
-          <div class="card">
-            <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", height:200 %>
-          </div>
-          <div>
-            <% if @user.id == current_user.id %>
-              <%= link_to "編集する", edit_user_registration_path(@user), class:"btn btn-sm btn-success" %>
-            <% end %>
-          </div>
+        <div class="col-xs-12 col-md-5 user_image">
+          <%= attachment_image_tag @user, :image, height:"200px", width:"100%", format: 'jpeg', fallback: "no_image.jpg" %>
         </div>
 
         <!-- 会員詳細 -->
-        <div class="col-xs-12 col-md-8 user_detail">
+        <div class="col-xs-12 col-md-7 user_detail">
           <h3><%= @user.name %></h3>
-          <h4><% if @user.id == current_user.id %>
-                <%= @user.email %>
-              <% end %>
-          </h4>
-          <h4>フォロー数（りんく）</h4>
-          <h4>フォロワー数（りんく）</h4>
-          <h4>フォローする、しない（他人の場合）</h4>
+          <table class="table table-border">
+            <!--本人ならメールアドレス表示-->
+            <% if @user.id == current_user.id %>
+              <tr>
+                <td><%= @user.email %></td>
+              </tr>
+            <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                フォロー数（りんく）</h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                フォロワー数（りんく）
+              </td>
+            </tr>
+            <tr>
+              <td>
+                フォローする、しない（他人の場合）
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <% if @user.id == current_user.id %>
+                  <%= link_to "編集する", edit_user_registration_path(@user), class:"btn btn-sm btn-success" %>
+                <% end %>
+              </td>
+            </tr>
+          </table>
         </div>
 
         <!-- 自己紹介文 -->
         <div class="col-12 user_introduction">
           <p><%= @user.introduction %></p>
         </div>
+
+        <!--ユーザーの投稿一覧-->
+        <h3><%= @user.name %>さんの投稿一覧</h3>
+        <div class="col-12">
+          <table class="table table-border" style="table-layout: fixed;">
+            <thead>
+              <tr>
+                <th>タイトル</th>
+                <th>投稿日</th>
+                <th>カテゴリー</th>
+                <th>いいね数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @items.each do |item| %>
+              <tr>
+                <!--製品名-->
+                <td>
+                  <div style="overflow: auto; white-space: nowrap;">
+                  <%= link_to item_path(item.id) do %>
+                    <%= item.name %>
+                  <% end %>
+                  </div>
+                </td>
+                <!--投稿日-->
+                <td><%= I18n.l item.created_at %></td>
+                <!--ジャンル-->
+                <td>
+                  <div style="overflow: auto; white-space: nowrap;">
+                    <!--ジャンルが削除された時の対策-->
+                    <% if item.genre.present? %>
+                      <%= item.genre.name %>
+                    <% else %>
+                      <p></p>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+              <% end %>
+
+            </tbody>
+
+          </table>
+        </div>
+
       </div>
     </div>
-    <!--メイン終了-->
   </div>
 </div>

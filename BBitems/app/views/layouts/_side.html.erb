@@ -1,0 +1,17 @@
+<div class="side_bar col-2">
+
+  <!--管理者ログイン時に表示-->
+  <% if current_user.try(:admin?) %>
+    <p><%= link_to '管理者ログイン', rails_admin_path %></p>
+    <p><%= link_to 'ジャンル編集へ', genres_path %></p>
+  <% end %>
+
+  <h6>ジャンル検索</h6>
+  <table>
+    <% @genres.each do |genre| %>
+      <tr>
+        <td><%= link_to genre.name, items_path(genre_id: genre.id) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
