@@ -1,0 +1,35 @@
+<!--フォロワー一覧-->
+<div class="col-10 pl-5">
+  <h2>フォロワー 一覧（全<%= @users.count %>件）</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-3">ユーザー名</th>
+        <th class="col-3">投稿件数</th>
+        <th class="col-3">フォロー</th>
+        <th class="col-3">フォロワー</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><!--ニックネーム・画像-->
+            <%= link_to user_path(user.id) do %>
+              <%= attachment_image_tag user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %> <br/>
+              <div class="text-truncate"><%= user.name %></div>
+            <% end %>
+          </td>
+          <!--投稿件数-->
+          <td><%= user.items.count %>件</td>
+          <!--フォロー・フォロワー件数-->
+          <td><%= user.followings.count %>人</td>
+          <td><%= user.followers.count %>人</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+

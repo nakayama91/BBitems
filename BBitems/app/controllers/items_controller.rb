@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 
   def new
     @item = Item.new
@@ -17,6 +18,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.order(created_at: :desc)
     @genres = Genre.all
+    #ジャンル検索リンクで遷移した場合のアクション
     if params[:genre_id].present?
       @genre = Genre.find(params[:genre_id])
       @items = @genre.items.order(created_at: :desc)
@@ -27,6 +29,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @user = @item.user
     @genres = Genre.all
+    @item_comment = ItemComment.new
   end
 
   def edit
@@ -56,6 +59,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:genre_id, :name, :introduction, :image, :maker, :user_id, :evaluation, :price)
+    params.require(:item).permit(:genre_id, :name, :introduction, :image, :maker, :user_id, :evaluation, :price,)
   end
 end

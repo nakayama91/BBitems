@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   #userルーティング
   resources :users, only:[:show, :index] do
     resource :relationships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as: 'followings'
-  	get 'followers' => 'relationships#followers', as: 'followers'
+    get 'followings', on: :member
+  	get 'followers', on: :member
+  	resources :likes, only: [:create, :destroy]
 
     collection do
       get 'users/leave' => 'users#leave', as:"leave"
@@ -20,11 +21,14 @@ Rails.application.routes.draw do
 
   #itemルーティング
   resources :items do
-    resource :item_comments, only:[:create, :destroy]
+    resources :item_comments, only:[:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
 
   #genreルーティング
   resources :genres, only:[:index, :show, :edit, :create, :update, :destroy]
+
+  #searchルーティング
+  get '/search' => 'searchs#index', as:"index"
 
 end

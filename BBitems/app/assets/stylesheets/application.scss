@@ -16,6 +16,9 @@
 
 @import "bootstrap";
 
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
 *{
   margin: 0;
   padding: 0;
@@ -28,7 +31,8 @@
 }
 
 .side_bar{
-  border: solid 5px red;
+  background-color: lightcyan;
+  border: solid 1px red;
   border-radius: 5px;
   height: 100%;
   padding: 10px 0 10px 5px;
@@ -55,4 +59,9 @@ footer{
     align-items: center;
     position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
+}
+
+
+.item-introduction{
+  border: solid 1px skyblue;
 }
