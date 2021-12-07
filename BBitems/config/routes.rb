@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   #itemルーティング
   resources :items do
-    resource :item_comments, only:[:create, :destroy]
+    resources :item_comments, only:[:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
 

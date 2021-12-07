@@ -1,0 +1,2 @@
+$("#item_<%= @item.id %>.comments-count").html("コメント数： <%= @item.item_comments.count %>");
+$("#comment-table").html("<%= j(render 'item_comments/comment', item: @item, item_comments: @item_comments) %>");

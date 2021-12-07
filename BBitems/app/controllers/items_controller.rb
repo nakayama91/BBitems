@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @user = @item.user
     @genres = Genre.all
+    @item_comment = ItemComment.new
   end
 
   def edit
