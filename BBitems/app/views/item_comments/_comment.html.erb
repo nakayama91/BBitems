@@ -1,20 +1,21 @@
 <table class="col-12">
   <tbody>
     <% item.item_comments.each do |item_comment| %>
-      <tr>
-        <td><!--ユーザー名・画像-->
-          <%= link_to user_path(item_comment.user) do %>
-            <%= attachment_image_tag item_comment.user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpeg" %> <br/>
-            <%= item_comment.user.name %>
-          <% end %>
-        </td>
-        <td><%= item_comment.comment %></td>
-        <td>
-          <% if item_comment.user_id == current_user.id %>
-            <p><%= link_to "削除", item_item_comment_path(item, item_comment), method: :delete, remote: true, class:'btn btn-sm btn-danger' %></p>
-          <% end %>
-        </td>
-      </tr>
+    <tr>
+      <td><!--ユーザー名・画像-->
+        <%= link_to user_path(item_comment.user) do %>
+          <%= attachment_image_tag item_comment.user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpeg" %> <br/>
+          <%= item_comment.user.name %>
+        <% end %>
+      </td>
+      <!--コメント-->
+      <td><%= item_comment.comment %></td>
+      <td><!--削除ボタン-->
+        <% if item_comment.user_id == current_user.id %>
+          <p><%= link_to "削除", item_item_comment_path(item, item_comment), method: :delete, remote: true, class:'btn btn-sm btn-danger' %></p>
+        <% end %>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>
