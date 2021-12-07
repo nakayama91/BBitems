@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   #genreルーティング
   resources :genres, only:[:index, :show, :edit, :create, :update, :destroy]
 
+  #searchルーティング
+  get '/search' => 'searchs#index', as:"index"
+
 end
