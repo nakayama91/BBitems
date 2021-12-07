@@ -1,4 +1,5 @@
 <table class="col-12">
+  <h5 id="item_<%= @item.id %> .comments-count">コメント数: <%= @item.item_comments.count %></h5>
   <tbody>
     <% item.item_comments.each do |item_comment| %>
     <tr>
