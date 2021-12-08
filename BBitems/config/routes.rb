@@ -24,11 +24,13 @@ Rails.application.routes.draw do
     resources :item_comments, only:[:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
+  get 'sortindex' => 'items#sortindex', as:"sortindex"
 
   #genreルーティング
   resources :genres, only:[:index, :show, :edit, :create, :update, :destroy]
 
   #searchルーティング
-  get '/search' => 'searchs#index', as:"index"
+  get '/search' => 'searchs#index', as:"index" #投稿の検索結果
+  get '/search/sort' => 'searchs#sort', as:"sort" #ソートの結果
 
 end

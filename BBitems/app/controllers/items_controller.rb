@@ -16,13 +16,19 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all.order(created_at: :desc)
-    @genres = Genre.all
+    @items = Item.all
     #ジャンル検索リンクで遷移した場合のアクション
     if params[:genre_id].present?
       @genre = Genre.find(params[:genre_id])
       @items = @genre.items.order(created_at: :desc)
     end
+    @genres = Genre.all #サイドバーにジャンルを表示
+  end
+  
+  def sortindex #並び替え
+    selection = params[:keyword]
+    @items = Item.sort(selection)
+    @genres = Genre.all #サイドバーにジャンルを表示
   end
 
   def show
@@ -59,6 +65,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:genre_id, :name, :introduction, :image, :maker, :user_id, :evaluation, :price,)
+    params.require(:item).permit(:genre_id, :name, :introduction, :image, :maker, :user_id, :evaluation, :price)
   end
+
 end

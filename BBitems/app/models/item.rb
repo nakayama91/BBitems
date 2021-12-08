@@ -17,4 +17,18 @@ class Item < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
+  #並び替え
+  def self.sort(selection)
+    case selection
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    when 'likes-many'
+      return find(Like.group(:item_id).order(Arel.sql('count(item_id) desc')).pluck(:item_id))
+    when 'likes-few'
+      return find(Like.group(:item_id).order(Arel.sql('count(item_id) asc')).pluck(:item_id))
+    end
+  end
+
 end

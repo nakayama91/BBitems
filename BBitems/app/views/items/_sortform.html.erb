@@ -1,0 +1,8 @@
+<%= form_with model: @item, url: sortindex_path, method: :get, local: true do |form| %>
+  <%= form.select :keyword, [ ['投稿が新しい順', 'new'],
+                              ['投稿が古い順', 'old'],
+                              ['いいねが多い順', 'likes-many'],
+                              ['いいねが少ない順', 'likes-few'],
+                            ] %>
+  <%= form.submit '並べ替え' %>
+<% end %>
