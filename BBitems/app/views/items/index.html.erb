@@ -1,15 +1,8 @@
 <div class="container">
   <div class="row">
-
     <!--サイドバー-->
     <%= render 'layouts/side' %>
-
     <!--メイン部分-->
-    <main class="col-9 pl-5">
-      <div class="row">
-        <%= render 'items/itemstable', items: @items %>
-      </div>
-    </main>
-    
+    <%= render 'items/itemstable', items: @items %>
   </div>
 </div>

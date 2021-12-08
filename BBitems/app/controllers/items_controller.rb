@@ -16,19 +16,17 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
-    #ジャンル検索リンクで遷移した場合のアクション
-    if params[:genre_id].present?
+    @genres = Genre.all #サイドバーにジャンルを表示
+    if selection = params[:keyword] #並べ替え表示
+      @items = Item.sort(selection)
+    else
+      @items = Item.all.order(created_at: :desc) #並べ替えしない状態は全投稿を表示
+    end
+
+    if params[:genre_id].present? #ジャンル検索リンクで遷移した場合
       @genre = Genre.find(params[:genre_id])
       @items = @genre.items.order(created_at: :desc)
     end
-    @genres = Genre.all #サイドバーにジャンルを表示
-  end
-  
-  def sortindex #並び替え
-    selection = params[:keyword]
-    @items = Item.sort(selection)
-    @genres = Genre.all #サイドバーにジャンルを表示
   end
 
   def show

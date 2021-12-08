@@ -20,13 +20,13 @@ class Item < ApplicationRecord
   #並び替え
   def self.sort(selection)
     case selection
-    when 'new'
+    when 'new' #新しい順
       return all.order(created_at: :DESC)
-    when 'old'
+    when 'old' #古い順
       return all.order(created_at: :ASC)
-    when 'likes-many'
+    when 'likes-many' #いいね多い順
       return find(Like.group(:item_id).order(Arel.sql('count(item_id) desc')).pluck(:item_id))
-    when 'likes-few'
+    when 'likes-few' #いいね少ない順
       return find(Like.group(:item_id).order(Arel.sql('count(item_id) asc')).pluck(:item_id))
     end
   end
