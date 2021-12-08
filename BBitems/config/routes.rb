@@ -31,6 +31,5 @@ Rails.application.routes.draw do
 
   #searchルーティング
   get '/search' => 'searchs#index', as:"index" #投稿の検索結果
-  get '/search/sort' => 'searchs#sort', as:"sort" #ソートの結果
 
 end
