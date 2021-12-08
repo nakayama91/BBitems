@@ -1,0 +1,46 @@
+<main class="col-10 pl-5">
+  <div class="row">
+
+    <h1>投稿一覧（全<%= items.count %>件）</h1>
+
+    <div class="col-12">
+      <h5><%= link_to "投稿する", new_item_path %></h5>
+      <h5><%= render 'items/sortform' %></h5>
+    </div>
+
+    <!--投稿一覧-->
+    <% items.each do |item| %>
+      <div class="col-xs-12 col-md-6 col-xl-3 mt-3">
+        <div class="card" style="float: left; width: 100%;">
+          <!--製品画像-->
+          <div class="card-img-top">
+            <%= link_to item_path(item.id) do %>
+              <%= attachment_image_tag item, :image, height:"150", width:"100%", format: 'jpeg', fallback: "no_image.jpg" %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <!--製品名-->
+            <h5 class="card-title text-truncate">
+              <%= link_to item.name, item_path(item.id) %>
+            </h5>
+            <div class="card-text text-truncate">
+              <!--ジャンル-->
+              <p><!--ジャンルが削除された時用にif-->
+                <% if item.genre.present? %>
+                  <%= item.genre.name %>
+                <% else %>
+                  <p></p>
+                <% end %>
+              </p>
+              <!--投稿日-->
+              <div>
+                <%= I18n.l item.created_at, format: :short %>＿
+                <p class="fas fa-thumbs-up"></p><%= item.likes.count %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>
