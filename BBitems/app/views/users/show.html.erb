@@ -4,7 +4,7 @@
     <%= render 'layouts/side' %>
 
     <!-- メイン -->
-    <div class="col-10 pl-5">
+    <div class="col-9 offset-1 mt-5">
       <div class="row">
 
         <!-- 会員画像 -->
@@ -15,7 +15,7 @@
         <!-- 会員詳細 -->
         <div class="col-xs-12 col-md-7 user_detail">
           <h3><%= @user.name %></h3>
-          <table class="table table-border">
+          <table class="table table-border col-8">
             <!--本人ならメールアドレス表示-->
             <% if @user.id == current_user.id %>
               <tr>
@@ -60,12 +60,13 @@
         </div>
 
         <!-- 自己紹介文 -->
-        <div class="col-12 user_introduction">
+        <h3 class="col-12 ml-2">自己紹介</h3>
+        <div class="col-10 user_introduction">
           <p><%= @user.introduction %></p>
         </div>
 
         <!--ユーザーの投稿一覧-->
-        <h3>"<%= @user.name %>"さんの投稿一覧（全<%= @user.items.count %>件）</h3>
+        <h3 class="col-12 ml-2">"<%= @user.name %>"さんの投稿一覧（全<%= @user.items.count %>件）</h3>
         <div class="col-12">
           <table class="table table-border" style="table-layout: fixed;">
             <thead>
@@ -73,7 +74,7 @@
                 <th>タイトル</th>
                 <th>投稿日</th>
                 <th>カテゴリー</th>
-                <th>いいね数</th>
+                <th>いいね</th>
               </tr>
             </thead>
             <tbody>

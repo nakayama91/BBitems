@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
 
-    <div class="h5 my-3 text-center theme col-3 offset-md-1">ジャンル一覧・追加</div>
+    <div class="h5 my-3 text-center theme col-3 offset-2">ジャンル一覧・追加</div>
   </div>
 
   <div class="row">
-    <div class="mt-5 mb-5 col-10">
+    <div class="mt-5 mb-5 col-9 offset-2">
       <%= form_with model: @genre,url: genres_path, local:true do |f| %>
         <div class="field form-group">
           <div style="margin-right:50px">ジャンル名</div>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="row">
-    <table class="col-4 table">
+    <table class="col-4 offset-2 table">
       <thead class="table-dark text-center">
         <th>ジャンル</th>
         <th></th>

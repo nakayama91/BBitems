@@ -31,7 +31,6 @@
 }
 
 .side_bar{
-  background-color: lightcyan;
   border: solid 1px red;
   border-radius: 5px;
   height: 100%;
@@ -52,16 +51,12 @@ header{
 footer{
     width: 100%;
     height: 56px;
+    font-size: 20px;
     color: white;
-    background-color: black;
+    background-color: #4682b4;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
-}
-
-
-.item-introduction{
-  border: solid 1px skyblue;
 }

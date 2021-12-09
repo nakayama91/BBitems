@@ -1,17 +1,22 @@
-<table class="col-12">
-  <h5 id="item_<%= @item.id %> .comments-count">コメント数: <%= @item.item_comments.count %></h5>
+<h5 id="item_<%= @item.id %> .comments-count">コメント一覧（コメント数: <%= @item.item_comments.count %>）</h5>
+<table class="table table-hover col-12" style="table-layout: fixed;">
+  <!--コメント一覧新着順-->
   <tbody>
-    <% item.item_comments.each do |item_comment| %>
+    <% item.item_comments.reverse.each do |item_comment| %>
     <tr>
-      <td><!--ユーザー名・画像-->
+      <td class="text-truncate col-2"><!--ユーザー名・画像-->
         <%= link_to user_path(item_comment.user) do %>
+          <div class="image-round">
           <%= attachment_image_tag item_comment.user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpeg" %> <br/>
+          </div>
           <%= item_comment.user.name %>
         <% end %>
       </td>
       <!--コメント-->
-      <td><%= item_comment.comment %></td>
-      <td><!--削除ボタン-->
+      <td class="col-6"><%= item_comment.comment %></td>
+      <!--コメント日-->
+      <td class="col-3"><%= I18n.l item_comment.created_at %></td>
+      <td class="col-1"><!--削除ボタン-->
         <% if item_comment.user_id == current_user.id %>
           <p><%= link_to "削除", item_item_comment_path(item, item_comment), method: :delete, remote: true, class:'btn btn-sm btn-danger' %></p>
         <% end %>
