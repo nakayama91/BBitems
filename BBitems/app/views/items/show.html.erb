@@ -5,7 +5,7 @@
     <%= render 'layouts/side' %>
 
     <!--メイン-->
-    <main class="col-10 pl-5">
+    <main class="col-9 offset-1">
       <div class="row">
 
         <!--投稿者の情報-->
@@ -33,7 +33,7 @@
           </h5>
         </div>
         <!--投稿詳細-->
-        <div class="col-xs-12 col-md-7">
+        <div class="col-xs-12 col-md-6">
           <table class="table table-border">
             <tr>
               <td style="width: 150px;">投稿日</td>
@@ -95,17 +95,20 @@
           });
         </script>
         <!--製品説明-->
-        <div class="col-12 mt-3 form-group item-introduction">
-          <h3>Introduction</h3>
-          <p>
-            <%= @item.introduction %>
-          </p>
+        <h3 class="col-12 ml-2">製品紹介</h3>
+        <div class="col-10 item-introduction">
+          <p><%= @item.introduction %></p>
         </div>
         <!--コメント入力欄-->
-        <%= render 'item_comments/form' %>
+        <h3 class="col-12 ml-2">コメント</h3>
+        <div class="col-12 mb-5">
+          <%= render 'item_comments/form' %>
+        </div>
         <!--コメント一覧-->
-        <div id="comment-table">
-          <%= render 'item_comments/comment', item: @item, item_comments: @item_comments %>
+        <div class="col-12 ml-2">
+          <div id="comment-table">
+            <%= render 'item_comments/comment', item: @item, item_comments: @item_comments %>
+          </div>
         </div>
 
       </div>
