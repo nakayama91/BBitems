@@ -1,11 +1,12 @@
-<main class="col-10 pl-5">
+<main class="col-9 offset-1">
   <div class="row">
 
-    <h1>投稿一覧（全<%= items.count %>件）</h1>
+    <div class="col-12 ml-2">
+      <h1>投稿一覧（全<%= items.count %>件）</h1>
+    </div>
 
-    <div class="col-12">
-      <h5><%= link_to "投稿する", new_item_path %></h5>
-      <h5><%= render 'items/sortform' %></h5>
+    <div class="col-12 ml-2">
+      <p><%= render 'items/sortform' %></p>
     </div>
 
     <!--投稿一覧-->
