@@ -4,6 +4,7 @@
     <title>BBitems</title>
     <%= csrf_meta_tags %>
 
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,12 +13,10 @@
     <div class="wrapper">
       <!-- ヘッダー -->
       <%= render 'layouts/header' %>
-      <!--アラート-->
-      <p id="notice"></p>
-      <p id="alert"></p>
 
       <%= yield %>
 
+      <!--フッター-->
       <%= render 'layouts/footer' %>
 
     </div>
