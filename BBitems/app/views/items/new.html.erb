@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 offset-2">
 
-      <h2>新規投稿</h2>
+      <h2 class="col-6">新規投稿</h2>
       <%= form_with model: @item, local:true do |f| %>
         <!--名前-->
         <div class="field form-group mt-3">
@@ -22,12 +22,12 @@
         </div>
        <!--製品画像-->
         <div class="field form-group mb-4">
-          <label >製品画像</label> <br/>
+          <label >製品画像（任意）</label> <br/>
           <%= f.attachment_field :image %>
         </div>
         <!--評価-->
         <div id="evaluate_stars">
-          <label>評価：</label>
+          <label>評価（任意）：</label>
         </div>
         <!--メーカー名-->
         <div class="field form-group mt-3">
