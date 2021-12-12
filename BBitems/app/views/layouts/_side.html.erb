@@ -44,7 +44,7 @@
       <div class="genre_index">
         <!--アルファベット順で表示-->
         <% @genres.order("name").each do |genre| %>
-          <p><%= link_to genre.name, items_path(genre_id: genre.id),class: "text-secondary" %></p>
+          <p><%= link_to genre.name, genre_index_path(genre_id: genre.id),class: "text-secondary" %></p>
         <% end %>
       </div>
     </div>
