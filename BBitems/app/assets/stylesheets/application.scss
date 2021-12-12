@@ -30,11 +30,24 @@
   display: contents;
 }
 
+/*サイドバー関連*/
 .side_bar{
-  border: solid 1px red;
-  border-radius: 5px;
+  margin-top: 10px;
+}
+.genre_bar{
+  border: solid 1px black;
   height: 100%;
-  padding: 10px 0 10px 5px;
+  padding: 0;
+  background-color: white;
+}
+.genre_head{
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+.genre_index p{
+  padding: 0 0 5px 10px;
+  margin: 0;
 }
 
 header{
@@ -70,13 +83,6 @@ table{
 }
 
 h3{
-  border-left: solid 15px #0056a0;
-  border-right: solid 15px #0056a0;
-  background: #f4f4f4;
-  padding-left: 10px
-}
-
-h2{
   border-left: solid 15px #0056a0;
   border-right: solid 15px #0056a0;
   background: #f4f4f4;

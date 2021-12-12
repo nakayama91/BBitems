@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :genre_index]
 
   def new
     @item = Item.new
@@ -22,11 +22,12 @@ class ItemsController < ApplicationController
     else
       @items = Item.all.order(created_at: :desc) #並べ替えしない状態は全投稿を表示
     end
+  end
 
-    if params[:genre_id].present? #ジャンル検索リンクで遷移した場合
-      @genre = Genre.find(params[:genre_id])
-      @items = @genre.items.order(created_at: :desc)
-    end
+  def genre_index
+    @genres = Genre.all #サイドバーにジャンルを表示
+    @genre = Genre.find(params[:genre_id])
+    @items = @genre.items.order(created_at: :desc)
   end
 
   def show

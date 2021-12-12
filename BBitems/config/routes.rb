@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :item_comments, only:[:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
-  get 'sortindex' => 'items#sortindex', as:"sortindex"
+  get 'genre_index' => 'items#genre_index', as:"genre_index"
 
   #genreルーティング
   resources :genres, only:[:index, :show, :edit, :create, :update, :destroy]
