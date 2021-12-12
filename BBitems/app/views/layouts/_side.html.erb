@@ -3,12 +3,33 @@
 
     <!--部分一致検索-->
     <div class="col-12">
-      <h5>投稿を検索</h5>
-      <%= form_tag({controller:"searchs",action:"index"}, method: :get) do %>
-        <%= text_field_tag :search %>
-        <%= submit_tag '検索', class:"btn btn-sm btn-outline-primary mt-2" %>
-      <% end %>
+      <h5>
+        投稿検索
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#sampleModal">
+        	<i class="fas fa-search"></i>
+        </button>
+      </h5>
+      <!-- モーダル・ダイアログ -->
+      <div class="modal fade" id="sampleModal" tabindex="-1">
+        <div class="modal-dialog">
+      		<div class="modal-content">
+      			<!--検索フォーム-->
+      			<%= form_tag({controller:"searchs",action:"index"}, method: :get) do %>
+      			<div class="modal-body" style="text-align: center;">
+      			  <p>投稿を検索（キーワードを入力してください）</p>
+              <i class="fas fa-search"></i><%= text_field_tag :search %>
+      			</div>
+      			<!--フッター-->
+      			<div class="modal-footer">
+      			  <%= submit_tag 'search', class:"btn btn-primary" %>
+      				<button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+      			</div>
+      			<% end %>
+      		</div>
+      	</div>
+      </div>
     </div>
+
     <!--管理者ログイン時に表示-->
     <% if current_user.try(:admin?) %>
     <div class="col-12 mt-3">
@@ -21,6 +42,7 @@
     <div class="genre_bar col-12 mt-2">
       <div class="h5 genre_head">ジャンル一覧</div>
       <div class="genre_index">
+        <!--アルファベット順で表示-->
         <% @genres.order("name").each do |genre| %>
           <p><%= link_to genre.name, items_path(genre_id: genre.id),class: "text-secondary" %></p>
         <% end %>
