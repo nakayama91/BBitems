@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
-
-  <!-- サイドバー -->
-  <%= render 'layouts/side' %>
-  <!--フォロワー一覧-->
-  <%= render 'users/relationships' %>
-
+    <!-- サイドバー -->
+    <%= render 'layouts/side' %>
+    <!--フォロワー一覧-->
+    <main class="col-9 offset-1">
+      <h2>フォロワー 一覧（全<%= @users.count %>件）</h2>
+      <%= render 'users/relationships' %>
+    </main>
   </div>
 </div>

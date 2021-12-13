@@ -1,1 +1,24 @@
-<h1>こんにちは</h1>
+<div class="container">
+  <div class="row">
+    <!--サイドバー-->
+    <%= render 'layouts/side' %>
+    <!--メイン部分-->
+    <main class="main-introduction col-9 offset-1 mt-5">
+      <h1>Welcomt to BBitems!!</h1>
+      <p  style="padding-bottom: 30px;">
+        野球製品のレビューをお探しの方は、ぜひBBitemsへご登録を！</br>
+        また、皆様のご投稿もお待ちしております！
+      </p>
+
+      <div class="btn-wrapper col-12 mx-auto">
+        <p>
+          <%= link_to "ログイン", new_user_session_path, class:"btn btn-sm btn-primary col-4" %>
+          <span>　　</span>
+          <%= link_to "新規登録", new_user_registration_path, class:"btn btn-sm btn-success col-4" %>
+        </p>
+      </div>
+
+    </main>
+
+  </div>
+</div>

@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 offset-2 mt-5">
+    <main class="col-8 offset-2 mt-5">
 
-      <h2 class="col-6">新規登録</h2>
+      <h2 class="col-10">新規登録</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field form-group">
           <%= f.label :ユーザー名 %><br />
-          <%= f.text_field :name, autofocus: true, class:"form-control col-6" %>
+          <%= f.text_field :name, autofocus: true, class:"form-control col-10" %>
         </div>
 
         <div class="field form-group">
           <%= f.label :Eメール %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control col-6" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control col-10" %>
         </div>
 
         <div class="field form-group">
@@ -21,12 +21,12 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> 文字以上)</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class:"form-control col-6" %>
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control col-10" %>
         </div>
 
         <div class="field form-group">
           <%= f.label :パスワード（確認） %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control col-6" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control col-10" %>
         </div>
 
         <div class="actions form-group">
@@ -34,6 +34,6 @@
         </div>
       <% end %>
 
-    </div>
+    </main>
   </div>
 </div>
