@@ -10,3 +10,25 @@
 .main-introduction h1{
   padding-bottom: 30px;
 }
+
+//スキッパーレイアウト
+#box{
+  margin: 0 auto;
+  width: 100%;
+  background-size: contain;
+  height: 600px;
+  border-left: solid 100px black;
+  border-right: solid 100px black;
+}
+.about1 {
+  background-image: url(about1.jpg);
+}
+.about2 {
+  background-image: url(about2.jpg);
+}
+.about3 {
+  background-image: url(about3.jpg);
+}
+.about4 {
+  background-image: url(about4.jpg);
+}
