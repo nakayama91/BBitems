@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//top画面
 .main-introduction{
   padding: 50px 0 50px 0;
   text-align: center;
@@ -11,14 +12,19 @@
   padding-bottom: 30px;
 }
 
+//about画面
+.about-box{
+  padding: 50px 50px 50px 50px;
+  display: flex;
+  position: relative;
+}
 //スキッパーレイアウト
 #box{
   margin: 0 auto;
   width: 100%;
   background-size: contain;
   height: 600px;
-  border-left: solid 100px black;
-  border-right: solid 100px black;
+  border: solid 30px black;
 }
 .about1 {
   background-image: url(about1.jpg);
@@ -31,4 +37,25 @@
 }
 .about4 {
   background-image: url(about4.jpg);
+}
+
+.about-introduction{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  background:rgba(50,50,50,0.5);
+  z-index: 100;
+  padding: 10px;
+}
+.about-introduction h1{
+  text-align: center;
+}
+.about-introduction p{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }

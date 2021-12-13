@@ -1,31 +1,24 @@
-<!--スキッパー-->
-<div id="box">
-  <div id="images">
-    <div class="about1"></div>
-    <div class="about2"></div>
-    <div class="about3"></div>
-    <div class="about4"></div>
+<div class="about-box">
+  <!--スキッパー-->
+  <div id="box">
+    <div id="images">
+      <div class="about1"></div>
+      <div class="about2"></div>
+      <div class="about3"></div>
+      <div class="about4"></div>
+    </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <!--メイン部分-->
-    <main class="main-introduction col-9 mt-5">
-      <h1>Welcomt to BBitems!!</h1>
-      <p  style="padding-bottom: 30px;">
-        野球製品のレビューをお探しの方は、ぜひBBitemsへご登録を！</br>
-        また、皆様のご投稿もお待ちしております！
-      </p>
-
-      <div class="btn-wrapper col-12 mx-auto">
-        <p>
-          <%= link_to "ログイン", new_user_session_path, class:"btn btn-sm btn-primary col-4" %>
-          <span>　　</span>
-          <%= link_to "新規登録", new_user_registration_path, class:"btn btn-sm btn-success col-4" %>
-        </p>
-      </div>
-    </main>
-
+  <!--メイン部分-->
+  <div class="about-introduction">
+    <h1>Welcomt to BBitems!!</h1>
+    <p>
+      BBitemsは野球製品のレビュー投稿サイトです。</br>
+      野球というスポーツは使用する道具が多く、販売されている製品も多種多様です。</br>
+      その為、新しく商品を購入する時にどれを買おうか悩まれる方も</br>
+      いらっしゃるのではないでしょうか？</br>
+      そんな時はぜひBBitemsの製品レビューをご利用下さい！</br>
+      また、皆さんからのたくさんの投稿をお待ちしております！
+    </p>
   </div>
+
 </div>
