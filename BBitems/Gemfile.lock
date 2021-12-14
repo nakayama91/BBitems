@@ -142,6 +142,7 @@ GEM
     minitest (5.14.4)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    mysql2 (0.5.3)
     nested_form (0.3.2)
     netrc (0.11.0)
     nio4r (2.5.8)
@@ -297,6 +298,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (~> 3.0.5)
+  mysql2
   puma (~> 3.0)
   rails (~> 5.2.5)
   rails_admin
