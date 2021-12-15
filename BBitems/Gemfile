@@ -57,6 +57,7 @@ gem 'ransack'
 gem 'cancancan'
 gem 'rails_admin'
 gem 'font-awesome-sass'
+gem 'rails-i18n'
 
 gem 'dotenv-rails'
 group :production do
