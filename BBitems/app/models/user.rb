@@ -39,4 +39,5 @@ class User < ApplicationRecord
   attachment :image
 
   validates :name, presence: true, length: { maximum: 20 }, uniqueness: true
+  validates :email, uniqueness: true, presence: true
 end

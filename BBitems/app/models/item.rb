@@ -10,6 +10,7 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :introduction, presence: true
+  validates :genre_id, presence: true
 
   # いいねされているか確かめる為の定義
   def liked_by?(user)

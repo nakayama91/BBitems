@@ -60,6 +60,12 @@ gem 'refile-mini_magick'
 group :development do
   gem 'rubocop', require: false
 end
+group :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
+end
 
 gem 'dotenv-rails'
 group :production do
