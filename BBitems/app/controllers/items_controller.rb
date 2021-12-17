@@ -17,17 +17,19 @@ class ItemsController < ApplicationController
 
   def index
     @genres = Genre.all #サイドバーにジャンルを表示
+    @items_all = Item.all
     if selection = params[:keyword] #並べ替え表示
       @items = Item.sort(selection)
+      @items = Kaminari.paginate_array(@items).page(params[:page]).per(12)
     else
-      @items = Item.all.order(created_at: :desc) #並べ替えしない状態は全投稿を表示
+      @items = Item.all.page(params[:page]).per(12).reverse_order #並べ替えしない状態は全投稿を表示
     end
   end
 
   def genre_index
     @genres = Genre.all #サイドバーにジャンルを表示
     @genre = Genre.find(params[:genre_id])
-    @items = @genre.items.order(created_at: :desc)
+    @items = @genre.items.page(params[:page]).per(12).reverse_order
   end
 
   def show
