@@ -40,13 +40,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # protected
 
-   #新規登録後の遷移先
+  # 新規登録後の遷移先
   def after_sign_up_path_for(_resource)
     user_path(current_user.id)
   end
 
-  #ユーザー情報変更後の遷移先
-  def after_update_path_for(resource)
+  # ユーザー情報変更後の遷移先
+  def after_update_path_for(_resource)
     user_path(current_user.id)
   end
 

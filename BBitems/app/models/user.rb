@@ -10,12 +10,12 @@ class User < ApplicationRecord
   has_many :liked_items, through: :likes, source: :item
 
   # 自分がフォローする（与フォロー）側の関係性（userはたくさんの人をフォローしている）
-  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :relationships, source: :followed
 
   # 自分がフォローされる（被フォロー）側の関係性（userはたくさんの人にフォローされている）
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   # 被フォロー関係を通じて参照→自分をフォローしている人
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
@@ -31,13 +31,12 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  #すでにいいねをしているのかどうかを判定
+  # すでにいいねをしているのかどうかを判定
   def already_liked?(item)
-    self.likes.exists?(item_id: item.id)
+    likes.exists?(item_id: item.id)
   end
 
   attachment :image
 
-  validates :name, presence: true,  length: { maximum: 20 }, uniqueness: true
-
+  validates :name, presence: true, length: { maximum: 20 }, uniqueness: true
 end

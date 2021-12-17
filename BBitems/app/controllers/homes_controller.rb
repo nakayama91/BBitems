@@ -1,5 +1,4 @@
 class HomesController < ApplicationController
-
   def top
     @genres = Genre.all
   end
@@ -7,5 +6,4 @@ class HomesController < ApplicationController
   def about
     @genres = Genre.all
   end
-
 end

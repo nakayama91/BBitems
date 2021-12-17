@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :genre_index]
+  before_action :authenticate_user!, except: %i[index genre_index]
 
   def new
     @item = Item.new
@@ -16,18 +16,18 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @genres = Genre.all #サイドバーにジャンルを表示
+    @genres = Genre.all # サイドバーにジャンルを表示
     @items_all = Item.all
-    if selection = params[:keyword] #並べ替え表示
+    if selection = params[:keyword] # 並べ替え表示
       @items = Item.sort(selection)
       @items = Kaminari.paginate_array(@items).page(params[:page]).per(12)
     else
-      @items = Item.all.page(params[:page]).per(12).reverse_order #並べ替えしない状態は全投稿を表示
+      @items = Item.all.page(params[:page]).per(12).reverse_order # 並べ替えしない状態は全投稿を表示
     end
   end
 
   def genre_index
-    @genres = Genre.all #サイドバーにジャンルを表示
+    @genres = Genre.all # サイドバーにジャンルを表示
     @genre = Genre.find(params[:genre_id])
     @items = @genre.items.page(params[:page]).per(12).reverse_order
   end
@@ -68,5 +68,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:genre_id, :name, :introduction, :image, :maker, :user_id, :evaluation, :price)
   end
-
 end
