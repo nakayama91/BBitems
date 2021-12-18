@@ -73,10 +73,11 @@
                 </td>
             </tr>
           </table>
+          <!--編集・削除リンク-->
           <% if @item.user_id == current_user.id %>
             <p>
               <span style="padding-right: 20px;"><%= link_to "編集する", edit_item_path(@item.id), class:'btn btn-sm btn-success' %></span>
-              <span style="margin-top: 20px;"><%= link_to "削除する", item_path(@item.id), method: :delete, data: {confirm: "本当に消しますか?"}, class:'btn btn-sm btn-danger' %></span>
+              <span style="margin-top: 20px;"><%= link_to "削除する", item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class:'btn btn-sm btn-danger' %></span>
             </p>
           <% end %>
         </div>
@@ -85,10 +86,12 @@
         <script>
           $('.item-evaluation').raty({
             readOnly: true,
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
             score: function() {
-              return $(this).attr('data-score');
-            },
-            path: '/assets/'
+              return $(this).attr('data-score')
+            }
           });
         </script>
         <!--製品説明-->
