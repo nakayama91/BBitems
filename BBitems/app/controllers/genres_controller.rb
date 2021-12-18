@@ -34,7 +34,6 @@ class GenresController < ApplicationController
     end
   end
 
-
   private
 
   def genre_params
@@ -42,9 +41,6 @@ class GenresController < ApplicationController
   end
 
   def ensure_correct_admin
-    unless current_user.admin?
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.admin?
   end
-
 end

@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     @genres = Genre.all
   end
 
-  def leave
-  end
+  def leave; end
 
   def followings
     user = User.find(params[:id])
@@ -23,7 +22,7 @@ class UsersController < ApplicationController
 
   def followers
     user = User.find(params[:id])
-    @users =user.followers
+    @users = user.followers
     @genres = Genre.all
   end
 
@@ -32,5 +31,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :introduction, :image)
   end
-
 end
