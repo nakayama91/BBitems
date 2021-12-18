@@ -71,6 +71,57 @@ describe '投稿のテスト' do
           expect(page).to have_link '削除する'
         end
       end
+      it '編集リンクが存在しているか' do
+        if item.user_id == @user.id
+          expect(page).to have_link '編集する'
+        end
+      end
+    end
+    context 'リンクの遷移先の確認' do
+      it '編集の遷移先は編集画面か' do
+        edit_link = find_all('a')[3]
+        if item.user_id == @user.id
+          edit_link.click
+          expect(current_path).to eq('/items/' + item.id.to_s + '/edit')
+        end
+      end
+    end
+    context 'item削除のテスト' do
+      it 'itemの削除' do
+        expect{ item.destroy }.to change{ Item.count }.by(-1)
+      end
+    end
+  end
+
+  # 5.編集画面テスト
+  describe '編集画面のテスト' do
+    before do
+      @user = FactoryBot.create(:user)
+      sign_in @user
+      visit edit_item_path(item)
+    end
+    context '表示の確認' do
+      it '編集前の名前と説明文がフォームに表示されている' do
+        if item.user_id == @user.id
+          expect(page).to have_field 'item[name]', with: item.name
+          expect(page).to have_field 'item[introduction]', with: item.introduction
+        end
+      end
+      it '変更するボタンが表示される' do
+        if item.user_id == @user.id
+          expect(page).to have_button '変更する'
+        end
+      end
+    end
+    context '更新処理に関するテスト' do
+      it '更新後のリダイレクト先は正しいか' do
+        if item.user_id == @user.id
+          fill_in 'item[name]', with: Faker::Lorem.characters(number:5)
+          fll_in 'item[introduction]', with: Faker::Lorem.characters(number:20)
+          click_button '変更する'
+          expect(page).to have_current_path item_path(item)
+        end
+      end
     end
   end
 
