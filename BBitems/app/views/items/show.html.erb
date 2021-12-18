@@ -10,14 +10,14 @@
 
         <!--投稿者の情報-->
         <h3 class="col-12">投稿者</h3>
-          <h5 class="ml-2">
-            <!--ユーザー画像-->
-            <%= attachment_image_tag @user, :image, class:"user_img", height:"70", width:"auto", format: 'jpeg', fallback: "no_image.jpg" %>
-            <!--投稿者名-->
-            <%= link_to user_path(@user.id) do %>
-              "<%= @user.name %>"さん
-            <% end %>
-          </h5>
+        <h4 class="ml-2">
+          <!--ユーザー画像-->
+          <%= attachment_image_tag @user, :image, class:"user_img", height:"70", width:"auto", format: 'jpeg', fallback: "no_image.jpg" %>
+          <!--投稿者名-->
+          <%= link_to user_path(@user.id) do %>
+            "<%= @user.name %>"さん
+          <% end %>
+        </h5>
 
         <!--投稿タイトル-->
         <div class="h3 item_title col-12 mt-3 mb-3"><%= @item.name %></div>
