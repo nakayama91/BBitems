@@ -1,0 +1,42 @@
+<main class="container">
+  <div class="row">
+    <div class="col-12 offset-3 mt-5">
+
+      <h3 class="col-6">お問い合わせ</h3>
+
+      <%= form_with url:inquiry_confirm_path, local:true do |f| %>
+        <!--エラー文-->
+        <% if @inquiry.errors.any? %>
+        <div class="alert alert-danger col-6" role="alert">
+            <strong>入力内容にエラーが有ります</strong>
+            <ul>
+              <% @inquiry.errors.each do |attr, msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <!--ユーザー名の入力-->
+        <div class="field form-group mt-3">
+          <label>ユーザー名（必須）</label><br/>
+          <%= f.text_field :name, autofocus:true, class:'form-control col-6' %>
+        </div>
+        <!--メールアドレスの入力-->
+        <div class="field form-group">
+          <label>メールアドレス（必須）</label><br/>
+          <%= f.text_field :email, autofocus:true, class:'form-control col-6' %>
+        </div>
+        <!--お問い合わせ内容の入力-->
+        <div class="field form-group">
+          <label>お問い合わせ内容</label><br/>
+          <%= f.text_area :message, autofocus:true, class:'form-control col-6' %>
+        </div>
+        <!--確認ボタン-->
+        <div class="form-group">
+          <%= f.submit "確認", class:'btn btn-sm btn-primary' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</main>
