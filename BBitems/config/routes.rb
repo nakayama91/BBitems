@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+
+  # inquiryルーティング
+  get 'inquiry/index'   => 'inquiry#index'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/thanks'  => 'inquiry#thanks'
+
+  # rails_adiminルーティング
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  # deviseルーティング
   devise_for :users, controllers: {   registrations: 'users/registrations',
                                       sessions: 'users/sessions' } # コントローラーの編集内容を反映させる
 
@@ -31,4 +40,5 @@ Rails.application.routes.draw do
 
   # searchルーティング
   get '/search' => 'searchs#index', as: 'index' # 投稿の検索結果
+
 end
