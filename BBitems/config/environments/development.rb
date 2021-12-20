@@ -30,13 +30,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
-  
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port:                 587,
     address:             'smtp.gmail.com',
     domain:              'gmail.com',
-    user_name:           ENV['INQUIRE_MAILERADDRESS'],
+    user_name:           ENV['INQUIRE_MAILER_ADDRESS'],
     password:            ENV['INQUIRE_MAILER_PASSWORD'],
     authentication:      'plain',
     enable_starttls_auto: true

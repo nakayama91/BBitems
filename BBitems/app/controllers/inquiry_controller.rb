@@ -3,7 +3,6 @@ class InquiryController < ApplicationController
   def index
     # 入力画面を表示
     @inquiry = Inquiry.new
-
   end
 
   def confirm
@@ -22,4 +21,5 @@ class InquiryController < ApplicationController
     # 完了画面を表示
     render :thanks
   end
+
 end

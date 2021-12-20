@@ -4,7 +4,7 @@
 
       <h3 class="col-6">送信内容</h3>
 
-      <%= form_with url:inquiry_thanks_path, local:true do |f| %>
+      <%= form_with model: @inquiry, url:inquiry_thanks_path, local:true do |f| %>
         <table class="table col-6 mt-3">
           <tr>
             <th class="col-4">ユーザー名</th>
@@ -28,9 +28,7 @@
             </td>
           </tr>
         </table>
-        <div class="form-group">
-          <%= f.submit '送信', class:'btn btn-sm btn-primary' %>
-        </div>
+        <%= f.submit '送信', class:'btn btn-sm btn-primary form-group' %>
       <% end %>
 
     </div>
