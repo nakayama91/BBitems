@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   # inquiryルーティング
   get 'inquiry/index'   => 'inquiry#index'
-  get 'inquiry/confirm' => 'inquiry#confirm'
-  get 'inquiry/thanks'  => 'inquiry#thanks'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/thanks'  => 'inquiry#thanks'
 
   # rails_adiminルーティング
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

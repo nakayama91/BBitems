@@ -4,7 +4,7 @@
 
       <h3 class="col-6">お問い合わせ</h3>
 
-      <%= form_with url:inquiry_confirm_path, local:true do |f| %>
+      <%= form_with model: @inquiry, url: inquiry_confirm_path, local:true do |f| %>
         <!--エラー文-->
         <% if @inquiry.errors.any? %>
         <div class="alert alert-danger col-6" role="alert">
