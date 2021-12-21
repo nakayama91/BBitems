@@ -6,7 +6,7 @@
     <tr>
       <!--ユーザー画像-->
       <td class="col-1">
-        <%= attachment_image_tag item_comment.user, :image, :fill, 60, 60, height:"50", width:"auto", class:"user_img", format: 'jpeg', fallback: "no_image.jpeg" %>
+        <%= attachment_image_tag item_comment.user, :image, height:"50", width:"50", class:"user_img", format: 'jpeg', fallback: "no_image.jpeg" %>
       </td>
       <!--ユーザー名・コメント・コメント日-->
       <td class="col-9">
