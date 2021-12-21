@@ -9,8 +9,10 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save(item_params)
+      flash[:notice] = "新規投稿が完了しました"
       redirect_to items_path
     else
+      flash[:alert] = "登録内容に誤りが有ります"
       render :new
     end
   end
@@ -50,8 +52,10 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
+      flash[:notice] = "投稿内容の編集が完了しました"
       redirect_to item_path(@item)
     else
+      flash[:alert] = "編集内容に誤りが有ります"
       render :edit
     end
   end
@@ -59,6 +63,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
+    flash[:notice] = "投稿を削除しました"
     redirect_to items_path
   end
 

@@ -16,5 +16,7 @@ module BBitems
     config.time_zone = 'Asia/Tokyo'
     # デフォルトのロケールを日本（ja）に設定
     config.i18n.default_locale = :ja
+    # config/locales以下のディレクトリ内にある全てのymlファイルを読み込むように指示する一文
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
   end
 end

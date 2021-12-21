@@ -71,7 +71,6 @@ main{
     padding-bottom: 78px; /* footer高さと同じ数値を指定,footer下に隠れない様にする */
     box-sizing: border-box; /*padding等全て含めてmin-height:100vhに*/
 }
-
 footer{
     width: 100%;
     height: 56px;
@@ -89,6 +88,7 @@ table{
   background-color: #f0f8ff;
 }
 
+/*各画面の見出しレイアウト*/
 h3{
   border-left: solid 15px #0056a0;
   border-right: solid 15px #0056a0;
@@ -102,4 +102,16 @@ h3{
 .pagination {
   justify-content: center;
   margin-top: 20px;
+}
+
+/*フラッシュメッセージの調整*/
+.alert{
+  padding: 0;
+  margin: 0;
+  color: red
+}
+.notice{
+  padding: 0;
+  margin: 0;
+  color: green;
 }

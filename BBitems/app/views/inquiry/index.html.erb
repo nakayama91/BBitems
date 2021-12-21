@@ -7,9 +7,9 @@
       <%= form_with model: @inquiry, url: inquiry_confirm_path, local:true do |f| %>
         <!--エラー文-->
         <% if @inquiry.errors.any? %>
-        <div class="alert alert-danger col-6" role="alert">
+        <div class="alert alert-danger col-12" role="alert">
             <strong>入力内容にエラーが有ります</strong>
-            <ul>
+            <ul class="pl-4">
               <% @inquiry.errors.each do |attr, msg| %>
                 <li><%= msg %></li>
               <% end %>

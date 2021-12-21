@@ -13,6 +13,9 @@
     <div class="wrapper">
       <!-- ヘッダー -->
       <%= render 'layouts/header' %>
+      <!-- deivseのフラッシュメッセージを表示 -->
+      <p class="notice"><span style="background-color:#DDFFDD"><%= notice %></span></p>
+      <p class="alert"><span style="background-color:#f8d7da"><%= alert %></span></p>
 
       <%= yield %>
 
