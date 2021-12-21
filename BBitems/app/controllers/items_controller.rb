@@ -19,8 +19,7 @@ class ItemsController < ApplicationController
     @genres = Genre.all # サイドバーにジャンルを表示
     @items_all = Item.all
     if selection = params[:keyword] # 並べ替え表示
-      @items = Item.sort(selection)
-      @items = Kaminari.paginate_array(@items).page(params[:page]).per(12)
+      @items = Kaminari.paginate_array(Item.sort(selection)).page(params[:page]).per(12)
     else
       @items = Item.all.page(params[:page]).per(12).reverse_order # 並べ替えしない状態は全投稿を表示
     end

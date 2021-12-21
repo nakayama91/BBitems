@@ -1,11 +1,11 @@
-<main class="container">
+<div class="container">
   <div class="row">
-    <div class="col-12 offset-3 mt-5">
+    <main class="col-8 offset-2">
 
-      <h3 class="col-6">送信内容</h3>
+      <h3>送信内容</h3>
 
       <%= form_with model: @inquiry, url:inquiry_thanks_path, local:true do |f| %>
-        <table class="table col-6 mt-3">
+        <table class="table col-12 mt-3">
           <tr>
             <th class="col-4">ユーザー名</th>
             <td class="col-8">
@@ -28,9 +28,9 @@
             </td>
           </tr>
         </table>
-        <%= f.submit '送信', class:'btn btn-sm btn-primary form-group' %>
+        <%= f.submit '送信', class:'btn btn-primary form-group' %>
       <% end %>
 
-    </div>
+    </main>
   </div>
-</main>
+</div>
