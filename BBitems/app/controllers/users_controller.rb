@@ -15,14 +15,14 @@ class UsersController < ApplicationController
   def leave; end
 
   def followings
-    user = User.find(params[:id])
-    @users = user.followings
+    @user = User.find(params[:id])
+    @users = @user.followings
     @genres = Genre.all
   end
 
   def followers
-    user = User.find(params[:id])
-    @users = user.followers
+    @user = User.find(params[:id])
+    @users = @user.followers
     @genres = Genre.all
   end
 

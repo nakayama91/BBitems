@@ -4,7 +4,7 @@
     <%= render 'layouts/side' %>
     <!--フォロワー一覧-->
     <main class="col-9 offset-1">
-      <h3>フォロワー 一覧（全<%= @users.count %>件）</h2>
+      <h3>"<%= @user.name %>"さんのフォロワー 一覧（全<%= @users.count %>件）</h3>
       <%= render 'users/relationships' %>
     </main>
   </div>
