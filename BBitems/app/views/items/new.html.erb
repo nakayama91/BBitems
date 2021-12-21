@@ -1,24 +1,24 @@
-<main class="container">
+<div class="container">
   <div class="row">
-    <div class="col-12 offset-2 mt-5">
+    <main class="col-8 offset-2">
 
-      <h3 class="col-6">新規投稿</h2>
+      <h3>新規投稿</h2>
       <%= form_with model: @item, local:true do |f| %>
         <!--名前-->
         <div class="field form-group mt-3">
           <label>製品名（必須）</label> <br/>
-          <%= f.text_field :name, autofocus: true, class:'form-control col-6' %>
+          <%= f.text_field :name, autofocus: true, class:'form-control col-10' %>
         </div>
         <!--ジャンル-->
         <div class="field form-group">
           <label>ジャンル（必須）</label> <br/>
-          <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '--選択してください--'}, class:'form-control col-3'%>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '--選択してください--'}, class:'form-control col-4'%>
         </div>
 
         <!--説明-->
         <div class="field form-group mt-3">
           <label>投稿製品の説明（必須）</label>
-          <%= f.text_area :introduction, autofocus: true, class:'form-control col-6' %>
+          <%= f.text_area :introduction, autofocus: true, class:'form-control col-10' %>
         </div>
        <!--製品画像-->
         <div class="field form-group mb-4">
@@ -32,12 +32,12 @@
         <!--メーカー名-->
         <div class="field form-group mt-3">
           <label>メーカー名（任意）</label> <br/>
-          <%= f.text_field :maker, autofocus: true, class:'form-control col-6' %>
+          <%= f.text_field :maker, autofocus: true, class:'form-control col-10' %>
         </div>
         <!--価格-->
         <div class="field form-group">
           <label>価格帯（任意）</label> <br/>
-          <%= f.text_field :price, autofocus: true, class:'form-control col-6' %>
+          <%= f.text_field :price, autofocus: true, class:'form-control col-10' %>
         </div>
 
         <!--投稿ボタン-->
@@ -56,6 +56,6 @@
         });
       </script>
 
-    </div>
+    </main>
   </div>
-</main>
+</div>

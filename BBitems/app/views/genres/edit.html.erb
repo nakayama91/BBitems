@@ -1,18 +1,19 @@
-<main class="container">
+<div class="container">
   <div class="row">
-    <div class="h5 text-center theme col-4 offset-2 mt-3">ジャンル編集</div>
-  </div>
+    <main class="col-8 offset-2 mt-5">
 
-  <div class="row">
-    <div class="col-4 offset-2 mb-2">
-      <%= form_with model: @genre,url: genre_path, local:true do |f| %>
-        <div class="field form-group">
-          <div style="margin-right:50px">ジャンル名</div>
-          <div style="margin-right:50px"><%= f.text_field :name, class:'form-control' %></div>
-        </div>
-        <%= f.submit "変更する", class: "btn btn-success" %>
-      <% end %>
-    </div>
+      <h3>ジャンル編集</h3>
 
+      <div class="col-12 mt-4 mb-3">
+        <%= form_with model: @genre,url: genre_path, local:true do |f| %>
+          <div class="field form-group">
+            <%= f.label :ジャンル名 %><br />
+            <%= f.text_field :name, class:'form-control' %></div>
+            <%= f.submit "変更する", class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+
+    </main>
   </div>
-</main>
+</div>

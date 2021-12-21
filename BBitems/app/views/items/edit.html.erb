@@ -1,23 +1,23 @@
-<main class="container">
+<div class="container">
   <div class="row">
-    <div class="col-12 offset-2">
+    <main class="col-8 offset-2">
 
-      <h3 class="col-6 mt-3">製品情報編集</h3>
+      <h3>製品情報編集</h3>
       <%= form_with model: @item, local:true do |f| %>
         <!--名前-->
-        <div class="field form-group">
+        <div class="field form-group mt-3">
           <label>製品名（必須）</label> <br/>
-          <%= f.text_field :name, autofocus: true, class:'form-control col-6' %>
+          <%= f.text_field :name, autofocus: true, class:'form-control col-10' %>
         </div>
         <!--ジャンル-->
         <div class="field form-group">
           <label>ジャンル（必須）</label> <br/>
-          <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '--選択してください--'}, class:'form-control col-3'%>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '--選択してください--'}, class:'form-control col-4'%>
         </div>
         <!--説明-->
         <div class="field form-group">
           <label>投稿製品の説明（必須）</label>
-          <%= f.text_area :introduction, autofocus: true, class:'form-control col-6' %>
+          <%= f.text_area :introduction, autofocus: true, class:'form-control col-10' %>
         </div>
        <!--製品画像-->
         <div class="field form-group mb-4">
@@ -31,12 +31,12 @@
         <!--メーカー名-->
         <div class="field form-group mt-3">
           <label>メーカー名（任意）</label> <br/>
-          <%= f.text_field :maker, autofocus: true, class:'form-control col-6' %>
+          <%= f.text_field :maker, autofocus: true, class:'form-control col-10' %>
         </div>
         <!--価格-->
         <div class="field form-group">
           <label>価格帯（任意）</label> <br/>
-          <%= f.text_field :price, autofocus: true, class:'form-control col-6' %>
+          <%= f.text_field :price, autofocus: true, class:'form-control col-10' %>
         </div>
 
         <!--投稿ボタン-->
@@ -55,6 +55,6 @@
         });
       </script>
 
-    </div>
+    </main>
   </div>
-</main>
+</div>

@@ -1,38 +1,33 @@
-<main class="container">
+<div class="container">
   <div class="row">
+    <main class="col-8 offset-2">
 
-    <div class="h5 my-3 text-center theme col-3 offset-2">ジャンル一覧・追加</div>
-  </div>
+      <h3>ジャンル一覧・追加</h3>
 
-  <div class="row">
-    <div class="mt-5 mb-5 col-9 offset-2">
-      <%= form_with model: @genre,url: genres_path, local:true do |f| %>
-        <div class="field form-group">
-          <div style="margin-right:50px">ジャンル名</div>
-          <div style="margin-right:50px">
-            <%= f.text_field :name, class:'form-control col-4', placeholder: "ジャンル名" %>
-          </div>
-        </div>
-        <%= f.submit "新規登録", class: "btn btn-success" %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <table class="col-4 offset-2 table">
-      <thead class="table-dark text-center">
-        <th>ジャンル</th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody class="text-center">
-        <% @genres.each do |genre| %>
-          <tr>
-            <td><%= genre.name%></td>
-            <td><%= link_to "編集する", edit_genre_path(genre.id), class:"btn btn-success" %></td>
-          </tr>
+      <div class="field form-group col-12 mt-4 mb-4">
+        <%= form_with model: @genre,url: genres_path, local:true do |f| %>
+          <%= f.label :ジャンル名 %><br />
+          <%= f.text_field :name, class:'form-control', placeholder: "ジャンル名" %>
+          <%= f.submit "新規登録", class:"btn btn-success mt-3" %>
         <% end %>
-      </tbody>
-    </table>
+      </div>
+
+      <table class="col-12 mb-5 table">
+        <thead class="table-dark text-center">
+          <th>ジャンル</th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody class="text-center">
+          <% @genres.each do |genre| %>
+            <tr>
+              <td><%= genre.name%></td>
+              <td><%= link_to "編集する", edit_genre_path(genre.id), class:"btn btn-success" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </main>
   </div>
-</main>
+</div>

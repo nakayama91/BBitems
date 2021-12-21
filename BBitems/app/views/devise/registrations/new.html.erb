@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <main class="col-8 offset-2 mt-5">
+    <main class="col-8 offset-2">
 
-      <h2 class="col-10">新規登録</h2>
+      <h3>新規登録</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="field form-group">
+        <div class="field form-group mt-3">
           <%= f.label :ユーザー名 %><br />
           <%= f.text_field :name, autofocus: true, class:"form-control col-10" %>
         </div>
