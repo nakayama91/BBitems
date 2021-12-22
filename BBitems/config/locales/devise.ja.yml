@@ -26,8 +26,47 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
         name: ユーザー名
+        image_id: プロフィール画像
+        introduction: 自己紹介
+        admin: 管理者ユーザー
+      item:
+        name: 製品名
+        genre: ジャンル
+        introduction: 製品説明
+        image_id: 製品画像
+        maker: メーカー
+        user: 投稿ユーザー
+        evaluation: 評価
+        price: 価格
+        created_at: 作成
+        updated_at: 更新日
+      genre:
+        name: ジャンル名
+        created_at: 作成
+        updated_at: 更新
+      like:
+        user: いいねしたユーザー
+        item: いいねされた製品
+        created_at: 作成
+        updated_at: 更新日
+      relationship:
+        follower: フォローユーザー
+        followed: 被フォローユーザー
+        created_at: 作成
+        updated_at: 更新日
+      item_comment:
+        user: コメントユーザー
+        item: コメント製品
+        comment: コメント文
+        created_at: 作成
+        updated_at: 更新日
     models:
       user: ユーザー
+      item: 製品
+      genre: ジャンル
+      like: いいね
+      relationship: フォロー
+      item_comment: コメント
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

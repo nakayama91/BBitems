@@ -8,7 +8,7 @@
         <!--エラー文-->
         <% if @inquiry.errors.any? %>
         <div class="alert alert-danger col-12" role="alert">
-            <strong>入力内容にエラーが有ります</strong>
+            <strong>入力内容に誤りが有ります</strong>
             <ul class="pl-4">
               <% @inquiry.errors.each do |attr, msg| %>
                 <li><%= msg %></li>
@@ -24,7 +24,7 @@
         <!--メールアドレスの入力-->
         <div class="field form-group">
           <label>メールアドレス（必須）</label><br/>
-          <%= f.text_field :email, autofocus:true, class:'form-control col-10' %>
+          <%= f.email_field :email, autofocus:true, class:'form-control col-10', placeholder: "半角英数" %>
         </div>
         <!--お問い合わせ内容の入力-->
         <div class="field form-group">
