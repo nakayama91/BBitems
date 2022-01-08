@@ -50,7 +50,6 @@ bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
 rails_root = Dir.pwd
 # 本番環境のみデーモン起動
 if Rails.env.production?
-  begin
   pidfile File.join(rails_root, 'tmp', 'pids', 'puma.pid')
   state_path File.join(rails_root, 'tmp', 'pids', 'puma.state')
   stdout_redirect(
@@ -59,11 +58,5 @@ if Rails.env.production?
     true
   )
   # デーモン
-  daemonize
-  rescue => e
-    pp "========================"
-    pp "========================"
-    pp "========================"
-    pp e
-  end
+  #daemonize
 end
