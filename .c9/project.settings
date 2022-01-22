@@ -40,5 +40,8 @@
     },
     "welcome": {
         "@first": true
+    },
+    "workspace": {
+        "@folders": []
     }
 }

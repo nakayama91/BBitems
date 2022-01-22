@@ -5,27 +5,27 @@
     <div class="col-12 mb-3">
       <div class="search-form mt-2">
         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#sampleModal">
-        	<i class="fas fa-search"></i> SEARCH
+          <i class="fas fa-search"></i> SEARCH
         </button>
       </div>
       <!-- モーダル・ダイアログ -->
       <div class="modal fade" id="sampleModal" tabindex="-1">
         <div class="modal-dialog">
-      		<div class="modal-content">
-      			<!--検索フォーム-->
-      			<%= form_tag({controller:"searchs",action:"index"}, method: :get) do %>
-      			<div class="modal-body" style="text-align: center;">
-      			  <p>投稿を検索（キーワードを入力してください）</p>
+          <div class="modal-content">
+            <!--検索フォーム-->
+            <%= form_tag({controller:"searchs",action:"index"}, method: :get) do %>
+            <div class="modal-body" style="text-align: center;">
+              <p>投稿を検索（キーワードを入力してください）</p>
               <i class="fas fa-search"></i><%= text_field_tag :search %>
-      			</div>
-      			<!--フッター-->
-      			<div class="modal-footer">
-      			  <%= submit_tag 'search', class:"btn btn-primary" %>
-      				<button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-      			</div>
-      			<% end %>
-      		</div>
-      	</div>
+            </div>
+            <!--フッター-->
+            <div class="modal-footer">
+              <%= submit_tag 'search', class:"btn btn-primary" %>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 
